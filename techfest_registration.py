@@ -32,3 +32,8 @@ for regis in participants:
 
 if dupes: print(f"\nDuplicate name found:", ", ".join(dupes))
 else: print(f"\nNo duplicate names.")
+
+track_sum = {track: sum(1 for regis in participants if regis["track"] == track) for track in unique}
+
+print(f"\nTrack Summary Report:")
+[print(f"{track}: {count}") for track, count in track_sum.items()]
