@@ -16,3 +16,8 @@ for i in range(num_participants):
 print("\nRegistered Participants:")
 for regis in participants:
     print(f'{regis["name"]} - {regis["track"]}')
+
+unique = set(regis["track"] for regis in participants)
+
+if len(unique) < 2: print("Not enough variety in tracks.")
+else: print("\nTracks offered in this event:\n", ", ".join(unique))
