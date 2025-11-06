@@ -21,3 +21,14 @@ unique = set(regis["track"] for regis in participants)
 
 if len(unique) < 2: print("Not enough variety in tracks.")
 else: print("\nTracks offered in this event:\n", ", ".join(unique))
+
+appeared = set()
+dupes = set()
+
+for regis in participants:
+    name = regis["name"]
+    if name in appeared: dupes.add(name)
+    else: appeared.add(name)
+
+if dupes: print(f"\nDuplicate name found:", ", ".join(dupes))
+else: print(f"\nNo duplicate names.")
